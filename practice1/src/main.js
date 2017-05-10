@@ -1,17 +1,12 @@
 import Vue from 'vue'
 
-Vue.component('todo-item', {
-  props: ['todo'],
-  template: '<li>{{todo.text}}</li>'
+const data = { a: 1 }
+const vm = new Vue({ // eslint-disable-line no-unuserd-vars
+  el: '#app',
+  data: data
 })
 
-const app = new Vue({ // eslint-disable-line no-new
-  el: '#app',
-  data: {
-    list: [
-      {text: '1'},
-      {text: '2'},
-      {text: '3'},
-    ]
-  }
+vm.$watch('a', function (newVal, oldVal) {
+  console.log(newVal)
+  console.log(oldVal)
 })
