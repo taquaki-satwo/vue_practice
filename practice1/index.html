@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="dist/build.css">
   </head>
   <body>
-    <div id="app"></div>
+    <ol id="app">
+      <todo-item v-for="item in list" v-bind:todo="item"></todo-item>
+    </ol>
     <script src="dist/build.js"></script>
   </body>
 </html>
