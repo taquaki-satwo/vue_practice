@@ -7,11 +7,9 @@
   </head>
   <body>
     <div id="app">
-      <p>
-        Ask a yes/no question:
-        <input type="text" v-model="q">
-      </p>
-      <p>{{a}}</p>
+      <div class="default" :class="{ active: isActive, 'tex-danger': error }">bind class</div>
+      <div class="default" :class="classObject">bind class</div>
+      <div class="default" :class="classObj">bind class</div>
     </div>
     <script src="dist/build.js"></script>
   </body>
