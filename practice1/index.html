@@ -7,7 +7,14 @@
   </head>
   <body>
     <div id="app">
-      <p v-show="false">v-show content</p>
+      <ul>
+        <li v-for="(item, index) in items">{{index}} - {{parentMsg}} - {{ item.msg }}</li>
+        <template v-for="(item, index) in items">
+          <li>{{index}} - {{parentMsg}} - {{ item.msg }}</li>
+        </template>
+        <li v-for="(value, key) in object">{{key}} : {{value}} </li>
+        <li v-for="n in 10">{{n}}</li>
+      </ul>
     </div>
     <script src="dist/build.js"></script>
   </body>
