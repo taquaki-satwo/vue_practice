@@ -7,19 +7,11 @@
   </head>
   <body>
     <div id="app">
-      <input type="text"
-        v-model="newTodoText"
-        @keyup.enter="addNewTodo"
-        placeholder="Add a todo"
-      >
       <ul>
-        <li
-          is="todo-item"
-          v-for="(todo, index) in todos"
-          :key="todo"
-          :title="todo"
-          @remove="todos.splice(index, 1)"
-        ></li>
+        <li v-for="n in evenNumbers">{{ n }}</li>
+      </ul>
+     <ul>
+        <li v-for="n in even(numbers)">{{ n }}</li>
       </ul>
     </div>
     <script src="dist/build.js"></script>
