@@ -7,14 +7,22 @@
   </head>
   <body>
     <div id="app">
-      <h1 v-if="false">true title</h1>
-      <h1 v-else-if="true">else if title</h1>
-      <h1 v-else>not true title</h1>
-      <template v-if="false">
-         <p>true template</p>
+      <template v-if="loginType === 'username'">
+         <label>username</label>
+         <input type="text" placeholder="name">
       </template>
       <template v-else>
-         <p>not true template</p>
+         <label>email</label>
+         <input type="email" placeholder="email">
+      </template>
+      <hr>
+      <template v-if="loginType === 'username'">
+         <label>username with key</label>
+         <input type="text" placeholder="name" key="name">
+      </template>
+      <template v-else>
+         <label>email</label>
+         <input type="email" placeholder="email" key="mail">
       </template>
     </div>
     <script src="dist/build.js"></script>
