@@ -1,22 +1,45 @@
 import Vue from 'vue'
 
-const app = new Vue({ // eslint-disable-line no-unuserd-vars
+Vue.component('global-component', {
+  template: '<div>Global component</div>'
+})
+
+const LocalComponent = {
+  props: ['myMessage'],
+  template: '<div>Local component {{myMessage}}</div>',
+}
+
+Vue.component('data-function', {
+  template: '<button @click="counter += 1">{{counter}}</button>',
+  data: function () {
+    return {
+      counter: 0
+    }
+  }
+})
+
+Vue.component('local-property', {
+  props: ['localMsg'],
+  template: '<div>{{localMsg}} & {{msg}} & {{lowerCase}}</div>',
+  data: function () {
+    return {
+      msg: this.localMsg
+    }
+  },
+  computed: {
+    lowerCase: function () {
+      return this.msg.trim().toLowerCase()
+    }
+  }
+})
+
+const vm = new Vue({ // eslint-disable-line no-unuserd-vars
   el: '#app',
+  components: {
+    'local-component': LocalComponent
+  },
   data: {
-    message: 'text',
-    checked: true,
-    toggle: true,
-    a: 'aaaa',
-    b: 'bbbb',
-    checkedNames: [1, 2],
-    picked: '',
-    selected: 2,
-    selects: [2],
-    dynamicSelect: 1,
-    options: [
-      {text: 1, value: 1},
-      {text: 2, value: 2},
-      {text: 3, value: 3},
-    ]
+    myMessage: '文字テンプレート',
+    parentMsg: 'Parent message'
   }
 })

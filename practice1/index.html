@@ -7,63 +7,19 @@
   </head>
   <body>
     <div id="app">
-      <p>
-        <input type="text" v-model="message" placeholder="edit me">
-      </p>
-      <p>
-        <textarea name="" id="" cols="30" rows="10" v-model="message"></textarea>
-      </p>
-      <p><input type="checkbox" v-model="checked"><label>{{checked}}</label></p>
-      <p>
-        <input
-          type="checkbox"
-          v-model="toggle"
-          :true-value="a"
-          :false-value="b"
-        >
-        <label>{{toggle}} / true: {{a}}, false: {{b}} </label>
-      </p>
-      <p>
-        <input type="checkbox" v-model="checkedNames" id="1" value="1">
-        <label for="1">1</label>
-        <input type="checkbox" v-model="checkedNames" id="2" value="2">
-        <label for="2">2</label>
-        <input type="checkbox" v-model="checkedNames" id="3" value="3">
-        <label for="3">3</label>
-        <span>{{checkedNames}}</span>
-      </p>
-      <p>
-        <input type="radio" id="1" value="1" v-model="picked">
-        <label for="1">1</label>
+      <global-component></global-component>
+      <local-component my-message="Hello"></local-component>
+      <p is="local-component" my-message="非文字テンプレート"></p>
+      <p>{{myMessage}}</p>
+      <data-function></data-function>
+      <data-function></data-function>
+      <data-function></data-function>
+      <div>
+        <input type="text" v-model="parentMsg">
         <br>
-        <input type="radio" id="2" value="2" v-model="picked">
-        <label for="2">2</label>
-        <br>
-        <input type="radio" id="3" value="3" v-model="picked">
-        <label for="3">3</label>
-        <br>
-        <span>{{picked}}</span>
-      </p>
-      <select v-model="selected">
-        <option disabled value="">select</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-      </select>
-      <p>{{selected}}</p>
-
-      <select v-model="selects" multiple>
-        <option disabled value="">select</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-      </select>
-      <p>{{selects}}</p>
-
-      <select name="" id="" v-model="dynamicSelect">
-        <option v-for="option in options" :value="option.value">{{option.text}}</option>
-      </select>
-      <span>Selected: {{dynamicSelect}}</span>
+        <local-component :my-message="parentMsg"></local-component>
+      </div>
+      <local-property :local-msg="parentMsg"></local-property>
     </div>
     <script src="dist/build.js"></script>
   </body>
