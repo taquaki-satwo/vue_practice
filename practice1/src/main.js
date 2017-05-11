@@ -3,25 +3,20 @@ import Vue from 'vue'
 const app = new Vue({ // eslint-disable-line no-unuserd-vars
   el: '#app',
   data: {
-    counter: 10,
-    name: 'vue.js'
-  },
-  methods: {
-    greet: function (e) {
-      alert('Hello' + this.name)
-      if (e) {
-        alert(e.target.tagName)
-      }
-    },
-    addCounter: function () {
-      this.counter += 1
-    },
-    say: function(msg) {
-      alert(msg)
-    },
-    warm: function(msg, e) {
-      if (e) e.preventDefault()
-      alert(msg + ' ' + e.currentTarget)
-    }
+    message: 'text',
+    checked: true,
+    toggle: true,
+    a: 'aaaa',
+    b: 'bbbb',
+    checkedNames: [1, 2],
+    picked: '',
+    selected: 2,
+    selects: [2],
+    dynamicSelect: 1,
+    options: [
+      {text: 1, value: 1},
+      {text: 2, value: 2},
+      {text: 3, value: 3},
+    ]
   }
 })
