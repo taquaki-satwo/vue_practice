@@ -7,8 +7,15 @@
   </head>
   <body>
     <div id="app">
-      <div style="font-weight: bold; color: red" :style="{color: activeColor, fontSize: fontSize + 'px'}">bind style</div>
-      <div style="font-weight: bold; color: red" :style="styleObject">bind style</div>
+      <h1 v-if="false">true title</h1>
+      <h1 v-else-if="true">else if title</h1>
+      <h1 v-else>not true title</h1>
+      <template v-if="false">
+         <p>true template</p>
+      </template>
+      <template v-else>
+         <p>not true template</p>
+      </template>
     </div>
     <script src="dist/build.js"></script>
   </body>
