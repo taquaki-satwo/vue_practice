@@ -1,16 +1,32 @@
 import Vue from 'vue'
 
-Vue.component('button-counter', {
-  template: '<button v-on:click="increment">{{ counter }}</button>',
-  data: function () {
-    return {
-      counter: 0
-    }
-  },
+Vue.component('currency-input', {
+  template: `
+    <span>
+      $
+      <input
+        ref="input"
+        :value="value"
+        @input="updateValue($event.target.value)">
+    </span>
+  `,
+  props: ['value'],
   methods: {
-    increment: function () {
-      this.counter += 1
-      this.$emit('cal')
+    updateValue: function (value) {
+      var formattedValue = value
+        .trim()
+        .slice(
+          0,
+          value.indexOf('.') === -1
+            ? value.length
+            : value.index('.') + 3
+        )
+
+      if (formattedValue !== value) {
+        this.$refs.input.value = formattedValue
+      }
+
+      this.$emit('input', Number(formattedValue))
     }
   }
 })
@@ -18,11 +34,6 @@ Vue.component('button-counter', {
 const vm = new Vue({ // eslint-disable-line no-unuserd-vars
   el: '#app',
   data: {
-    total: 0
-  },
-  methods: {
-    incrementTotal: function () {
-      this.total += 1
-    }
+    price: ''
   }
 })

@@ -7,10 +7,9 @@
   </head>
   <body>
     <div id="app">
-      <p>{{total}}</p>
-      <button-counter v-on:cal="incrementTotal"></button-counter>
-      <button-counter v-on:cal="incrementTotal"></button-counter>
+      <currency-input v-model="price"></currency-input>
     </div>
     <script src="dist/build.js"></script>
   </body>
 </html>
+
