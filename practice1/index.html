@@ -7,19 +7,9 @@
   </head>
   <body>
     <div id="app">
-      <global-component></global-component>
-      <local-component my-message="Hello"></local-component>
-      <p is="local-component" my-message="非文字テンプレート"></p>
-      <p>{{myMessage}}</p>
-      <data-function></data-function>
-      <data-function></data-function>
-      <data-function></data-function>
-      <div>
-        <input type="text" v-model="parentMsg">
-        <br>
-        <local-component :my-message="parentMsg"></local-component>
-      </div>
-      <local-property :local-msg="parentMsg"></local-property>
+      <p>{{total}}</p>
+      <button-counter v-on:cal="incrementTotal"></button-counter>
+      <button-counter v-on:cal="incrementTotal"></button-counter>
     </div>
     <script src="dist/build.js"></script>
   </body>
